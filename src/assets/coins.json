@@ -1,0 +1,18 @@
+[
+  {
+    "coin": "BTC",
+    "quantity": 0.4,
+    "pru": 25000,
+    "price": 100000,
+    "beneficePercentage": 40,
+    "beneficeDollar": 400
+  },
+  {
+    "coin": "ETH",
+    "quantity": 6,
+    "pru": 3000,
+    "price": 4000,
+    "beneficePercentage": 40,
+    "beneficeDollar": 400
+  }
+]

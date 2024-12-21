@@ -1,0 +1,17 @@
+:host ::ng-deep .p-menubar {
+  background-color: #007ad9;
+  color: white;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link {
+  color: white;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link:hover {
+  background-color: #005bb5;
+  color: #fff;
+}
+
+img {
+  cursor: pointer;
+}
