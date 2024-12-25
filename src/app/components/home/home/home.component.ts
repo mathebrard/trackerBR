@@ -3,34 +3,16 @@ import { TableModule } from 'primeng/table';
 import { PortfolioServiceService } from '../../../services/portfolio-service.service';
 import { CarouselModule } from 'primeng/carousel';
 import { NavComponent } from '../nav/nav.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
-  imports: [TableModule, CarouselModule, NavComponent],
+  imports: [TableModule, CarouselModule, NavComponent, HttpClientModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  public coins: any = [
-    {
-      coin: 'BTC',
-      quantity: 0.4,
-      pru: 25000,
-      price: 100000,
-      beneficePercentage: 40,
-      beneficeDollar: 400,
-      titre: 'titre',
-    },
-    {
-      coin: 'ETH',
-      quantity: 6,
-      pru: 3000,
-      price: 4000,
-      beneficePercentage: 40,
-      beneficeDollar: 400,
-      titre: 'titre2',
-    },
-  ];
+  public coins: any;
 
   items = [
     {
@@ -59,9 +41,8 @@ export class HomeComponent implements OnInit {
   constructor(private portfolioService: PortfolioServiceService) {}
 
   ngOnInit() {
-    // this.portfolioService.getCoins().subscribe((res) => {
-    //   // this.coins = res;
-    //   console.log(res);
-    // });
+    this.portfolioService.getCoins().subscribe((res) => {
+      this.coins = res;
+    });
   }
 }

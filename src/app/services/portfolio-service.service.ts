@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PortfolioServiceService {
-  private jsonUrl = 'assets/coins.json';
+  private jsonUrl = './assets/coins.json';
 
   constructor(private http: HttpClient) {}
 
