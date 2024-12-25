@@ -42,12 +42,21 @@ export class HomeComponent implements OnInit {
   constructor(private portfolioService: PortfolioServiceService) {}
 
   ngOnInit() {
-    this.portfolioService.getCoins().subscribe((res) => {
-      this.coins = res;
-    });
+    this.portfolioService.getCoins().subscribe((coins) => {
+      this.coins = coins;
 
-    this.portfolioService.getCoinsAPI().subscribe((res) => {
-      console.log(res);
+      // Récupération des prix pour chaque coin
+      this.coins.forEach((coin) => {
+        this.portfolioService.getCoinPrice(coin.ticker).subscribe((res) => {
+          if (res?.data?.quote?.USD?.price) {
+            coin.price = res.data.quote.USD.price;
+            coin.beneficeDollar =
+              coin.price * coin.quantity - coin.pru * coin.quantity;
+            coin.beneficePercentage =
+              (coin.price * coin.quantity) / (coin.pru * coin.quantity);
+          }
+        });
+      });
     });
   }
 }

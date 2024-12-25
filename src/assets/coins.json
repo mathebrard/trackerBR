@@ -1,6 +1,6 @@
 [
   {
-    "coin": "BTC",
+    "ticker": "BTC",
     "quantity": 0.4,
     "pru": 25000,
     "price": 100000,
@@ -8,7 +8,7 @@
     "beneficeDollar": 400
   },
   {
-    "coin": "ETH",
+    "ticker": "ETH",
     "quantity": 6,
     "pru": 3000,
     "price": 4000,
