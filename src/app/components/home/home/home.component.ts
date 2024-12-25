@@ -4,6 +4,7 @@ import { PortfolioServiceService } from '../../../services/portfolio-service.ser
 import { CarouselModule } from 'primeng/carousel';
 import { NavComponent } from '../nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Coin } from '../../../models/coins';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  public coins: any;
+  public coins: Coin[] = [];
 
   items = [
     {
@@ -43,6 +44,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.portfolioService.getCoins().subscribe((res) => {
       this.coins = res;
+    });
+
+    this.portfolioService.getCoinsAPI().subscribe((res) => {
+      console.log(res);
     });
   }
 }
